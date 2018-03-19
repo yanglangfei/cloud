@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: gateway
+
+server:
+  port: 1101
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/
+
+zuul:
+  routes:
+    user-service:
+      path: /user-service/**
+      serviceId: product-service
