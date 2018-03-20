@@ -9,9 +9,16 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:1001/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    ip-address: true
 
 zuul:
   routes:
     user-service:
-      path: /user-service/**
-      serviceId: product-service
+      path: /user/**
+      serviceId: user-service
+    product-service:
+      path: /product/**
+      url: http://192.168.1.31:8080
