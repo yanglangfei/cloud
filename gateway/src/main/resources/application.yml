@@ -1,24 +1,23 @@
 spring:
   application:
     name: gateway
+  cloud:
+    config:
+      profile: dev
+      uri: http://localhost:8888
+      fail-fast: true
 
 server:
   port: 1101
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:1001/eureka/
-    fetch-registry: true
-    register-with-eureka: true
-  instance:
-    ip-address: true
-
 zuul:
   routes:
-    user-service:
+    app:
       path: /app/**
       serviceId: app
+    user-service:
+      path: /user/**
+      serviceId: user-service
     product-service:
       path: /product/**
       url: http://192.168.1.31:8080

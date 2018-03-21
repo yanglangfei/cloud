@@ -1,6 +1,0 @@
-define:
-  product: product-service:eggs
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:1001/eureka/
