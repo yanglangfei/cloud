@@ -1,12 +1,18 @@
-
 spring:
   application:
-    name: config
+    name: discover
+
 server:
   port: 1001
+
 eureka:
-  instance:
-    hostname: localhost
   client:
     register-with-eureka: false
     fetch-registry: false
+#security:
+ # basic:
+  #  enabled: false
+  #user:
+  #  name: root
+  #  password: 111111
+

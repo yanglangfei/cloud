@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>user-server</artifactId>
+            <artifactId>user-service</artifactId>
             <version>1.5.4.RELEASE</version>
         </dependency>
 
