@@ -1,5 +1,5 @@
 package com.yf.gateway.config;
-import com.yf.gateway.filter.AccessFilter;
+import com.yf.gateway.filter.pre.AccessLogFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class FilterConfig {
 
     @Bean
-    public AccessFilter requestLogFilter() {
-        return new AccessFilter();
+    public AccessLogFilter requestLogFilter() {
+        return new AccessLogFilter();
     }
 }

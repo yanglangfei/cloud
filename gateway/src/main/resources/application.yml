@@ -17,8 +17,8 @@ eureka:
 zuul:
   routes:
     user-service:
-      path: /user/**
-      serviceId: user-service
+      path: /app/**
+      serviceId: app
     product-service:
       path: /product/**
       url: http://192.168.1.31:8080
