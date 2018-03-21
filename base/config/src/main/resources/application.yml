@@ -1,8 +1,0 @@
-define:
-  glableValue: 全局变量
-
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:1001/eureka/
