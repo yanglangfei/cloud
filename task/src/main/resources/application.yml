@@ -11,7 +11,7 @@ server:
 eureka:
   client:
     healthcheck:
-      enabled: false
+      enabled: true
 
 
 
