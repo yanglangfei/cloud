@@ -8,7 +8,6 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.7.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>com.yf</groupId>
@@ -22,5 +21,18 @@
         <module>base</module>
     </modules>
 
+
+    <!-- <distributionManagement>
+         <repository>
+             <id>alimaven</id>
+             <name>aliyun maven</name>
+             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+         </repository>
+         <snapshotRepository>
+             <id>snapshots</id>
+             <name>Nexus Snapshot Repository</name>
+             <url>http://maven.aliyun.com/nexus/content/repositories/snapshots/</url>
+         </snapshotRepository>
+     </distributionManagement>-->
 
 </project>
