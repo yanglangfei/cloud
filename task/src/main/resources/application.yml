@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: task
+  cloud:
+    config:
+      profile: dev
+      uri: http://localhost:8888/
+      fail-fast: true
+server:
+  port: 1582
+eureka:
+  client:
+    healthcheck:
+      enabled: false
+
+
+
