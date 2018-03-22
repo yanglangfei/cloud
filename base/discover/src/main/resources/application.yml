@@ -3,7 +3,7 @@ spring:
     name: discover
 
 server:
-  port: 1001
+  port: 8761
 
 
 eureka:
