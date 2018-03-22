@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="admin" />
+        <module name="app" />
+        <module name="config-server" />
+        <module name="discover" />
+        <module name="discover1" />
+        <module name="gateway" />
+        <module name="libs" />
+        <module name="product-service" />
+        <module name="task" />
+        <module name="turbine" />
+        <module name="user-service" />
+        <module name="user_service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin" target="1.7" />
+      <module name="app" target="1.7" />
+      <module name="base" target="1.7" />
+      <module name="cloud" target="1.7" />
+      <module name="config" target="1.7" />
+      <module name="config-server" target="1.7" />
+      <module name="discover" target="1.7" />
+      <module name="discover1" target="1.7" />
+      <module name="gateway" target="1.7" />
+      <module name="libs" target="1.7" />
+      <module name="product-server" target="1.7" />
+      <module name="product-service" target="1.7" />
+      <module name="product-service-client" target="1.7" />
+      <module name="service" target="1.7" />
+      <module name="task" target="1.7" />
+      <module name="turbine" target="1.7" />
+      <module name="user-service" target="1.7" />
+      <module name="user_service" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

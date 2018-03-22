@@ -10,14 +10,10 @@ spring:
 server:
   port: 1115
 turbine:
-  app-config: user-service,product-service,gateway,app,discover,config-server
+  app-config: default
   stream:
     port: 8989
 
-
-eureka:
-  instance:
-    preferIpAddress: true
 
 management:
   security:

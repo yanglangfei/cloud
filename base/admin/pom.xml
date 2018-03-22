@@ -84,11 +84,11 @@
         </dependency>
 
         <!-- admin client -->
-        <dependency>
+      <!--  <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
             <version>1.5.0</version>
-        </dependency>
+        </dependency>-->
 
         <!--JMX management-->
         <dependency>
@@ -96,11 +96,21 @@
             <artifactId>jolokia-core</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zuul</artifactId>
+        </dependency>
+
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-core</artifactId>
+            <version>1.3.5.RELEASE</version>
         </dependency>
 
     </dependencies>
