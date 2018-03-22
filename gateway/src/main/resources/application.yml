@@ -10,6 +10,12 @@ spring:
 server:
   port: 1101
 
+
+eureka:
+  instance:
+    ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+
 zuul:
   routes:
     app:

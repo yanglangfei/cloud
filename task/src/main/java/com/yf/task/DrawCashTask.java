@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Slf4j
 public class DrawCashTask {
 
-    @Scheduled(fixedRate = 2000)
+    @Scheduled(fixedRate = 60000)
     public  void  run(){
         log.info("task is runing:"+ LocalDate.now());
 

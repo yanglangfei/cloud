@@ -15,7 +15,7 @@ spring:
           to: 185601452@qq.com   #接受邮件地址
           cc: xxxxxxx@qq.com    #抄送人
           from: 185601452@qq.com  #发件人
-          subject: "#{application.name} (#{application.id}) is #{to.status}"   #主题
+          subject: ${application.name}-${application.id} is ${to.status}   #主题
           text: "#{application.name} (#{application.id})\nstatus changed from #{from.status} to #{to.status}\n\n#{application.healthUrl}"
       monitor:
         period: 100000   #更新频率
@@ -23,6 +23,13 @@ spring:
 
 server:
   port: 8855
+
+eureka:
+  instance:
+    ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+
+
 
 
 
