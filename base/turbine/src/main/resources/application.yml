@@ -10,16 +10,9 @@ spring:
 server:
   port: 1115
 turbine:
-  app-config: default
+  #app-config: default
   stream:
     port: 8989
-
-
-eureka:
-  instance:
-    ip-address: true
-    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
-    health-check-url-path: /health
 
 
 management:
@@ -30,5 +23,5 @@ security:
     enabled: false
   user:
     name: admin
-    password: admin123
+    password: 111111
 hystrix.stream.dashboard.intervalInMilliseconds: 5000

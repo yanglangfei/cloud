@@ -11,9 +11,3 @@ server:
 logging:
   level: debug
 
-eureka:
-  instance:
-    ip-address: true
-    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
-    health-check-url-path: /health
-

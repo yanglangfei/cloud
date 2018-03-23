@@ -1,6 +1,10 @@
 spring:
   application:
     name: discover
+  cloud:
+    config:
+      uri: http://localhost:8888
+      profile: dev
 
 server:
   port: 8761
@@ -10,37 +14,37 @@ eureka:
   client:
     register-with-eureka: false    #	启动服务注册
     fetch-registry: false
-    registry-fetch-interval-seconds: 30  #从Eureka服务器端获取注册信息的间隔时间，单位：秒
-    healthcheck:
-      enabled: true
-    eureka-server-connect-timeout-seconds: 30  #连接 Eureka Server 的超时时间，单位：秒
-    eureka-server-read-timeout-seconds: 10  #读取 Eureka Server 信息的超时时间，单位：秒
-    filter-only-up-instances: true    #获取实例时是否过滤，只保留UP状态的实例
-    eureka-connection-idle-timeout-seconds: 30   #Eureka 服务端连接空闲关闭时间，单位：秒
-    eureka-server-total-connections: 200
-    eureka-server-total-connections-per-host: 50 #从Eureka客户端到每个Eureka服务主机的连接总数
+    #registry-fetch-interval-seconds: 30  #从Eureka服务器端获取注册信息的间隔时间，单位：秒
+    #healthcheck:
+     # enabled: true
+    #eureka-server-connect-timeout-seconds: 30  #连接 Eureka Server 的超时时间，单位：秒
+    #eureka-server-read-timeout-seconds: 10  #读取 Eureka Server 信息的超时时间，单位：秒
+    #filter-only-up-instances: true    #获取实例时是否过滤，只保留UP状态的实例
+    #eureka-connection-idle-timeout-seconds: 30   #Eureka 服务端连接空闲关闭时间，单位：秒
+    #eureka-server-total-connections: 200
+    #eureka-server-total-connections-per-host: 50 #从Eureka客户端到每个Eureka服务主机的连接总数
 
 
   instance:
-    lease-renewal-interval-in-seconds: 20    # 续约更新时间间隔（默认30秒）
-    lease-expiration-duration-in-seconds: 60   # 续约到期时间（默认90秒）
-    status-page-url-path: /status    #  状态页面的URL，相对路径  status-page-url  绝对路径
-    health-check-url-path: /health    #健康检查页面的URL，相对路径
-    ip-address: true
-    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
-
+    #lease-renewal-interval-in-seconds: 20    # 续约更新时间间隔（默认30秒）
+    #lease-expiration-duration-in-seconds: 60   # 续约到期时间（默认90秒）
+   # status-page-url-path: /status    #  状态页面的URL，相对路径  status-page-url  绝对路径
+    #health-check-url-path: /health    #健康检查页面的URL，相对路径
 
 
   server:
-    enable-self-preservation: true     #关闭自我保护
-    eviction-interval-timer-in-ms: 600000    # 清理间隔（单位毫秒，默认是60*1000）
+    enable-self-preservation: false     #关闭自我保护，保证会注销服务，清理无效节点
+    eviction-interval-timer-in-ms: 600000    # 清理无效节点间隔（毫秒）
 
+
+management:
+  security:
+    enabled: true
+security:
+  basic:
+    enabled: false
+  user:
+    name: admin
+    password: 111111
 hystrix.stream.dashboard.intervalInMilliseconds: 5000
-
-#security:
- # basic:
-  #  enabled: false
-  #user:
-  #  name: root
-  #  password: 111111
 

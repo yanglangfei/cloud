@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: zipkin
+  cloud:
+    config:
+      profile: dev
+      uri: http://localhost:8888
+      fail-fast: true
+
+server:
+  port: 1158
+
+management:
+  security:
+    enabled: true
+security:
+  basic:
+    enabled: false
+  user:
+    name: admin
+    password: 111111
+hystrix.stream.dashboard.intervalInMilliseconds: 5000

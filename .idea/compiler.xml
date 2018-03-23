@@ -18,6 +18,7 @@
         <module name="turbine" />
         <module name="user-service" />
         <module name="user_service" />
+        <module name="zipkin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -39,6 +40,7 @@
       <module name="turbine" target="1.7" />
       <module name="user-service" target="1.7" />
       <module name="user_service" target="1.7" />
+      <module name="zipkin" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

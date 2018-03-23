@@ -17,6 +17,7 @@
         <module>admin</module>
         <module>turbine</module>
         <module>libs</module>
+        <module>zipkin</module>
     </modules>
 
 

@@ -47,6 +47,12 @@
             <version>1.5.5</version>
         </dependency>
 
+        <!--security-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
         <!-- hystrix -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -84,11 +90,11 @@
         </dependency>
 
         <!-- admin client -->
-      <!--  <dependency>
+        <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
             <version>1.5.0</version>
-        </dependency>-->
+        </dependency>
 
         <!--JMX management-->
         <dependency>

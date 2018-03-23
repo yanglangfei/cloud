@@ -8,9 +8,3 @@ spring:
       fail-fast: true
 server:
   port: 1003
-
-eureka:
-  instance:
-    ip-address: true
-    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
-    health-check-url-path: /health
