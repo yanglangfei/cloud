@@ -6,5 +6,12 @@ spring:
       profile: dev
       uri: http://localhost:8888/
       fail-fast: true
+  stream:
+    bindings:
+      input_user_login:
+        destination: userLogin
+        content-type: application/json
+        group: ${spring.application.name}
+
 server:
   port: 1003

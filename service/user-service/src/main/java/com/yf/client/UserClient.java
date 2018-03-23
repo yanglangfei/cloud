@@ -17,4 +17,7 @@ public interface UserClient {
     @GetMapping("/user/getValue")
     String getValue();
 
+    @PostMapping("/user/login")
+    User login(@RequestParam("id") Long id);
+
 }

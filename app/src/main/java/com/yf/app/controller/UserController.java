@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -54,6 +55,16 @@ public class UserController {
     @GetMapping("/getProductName")
     public  String getProductName(){
         return  productClient.getValue();
+    }
+
+
+    @ApiOperation(value = "用户登录", httpMethod = "POST", notes = "用户登录")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userId", value = "用户ID", dataType = "long", paramType = "query",required = true),
+    })
+    @GetMapping("/login")
+    public  User userLogin(@RequestParam Long userId){
+        return  userClient.login(userId);
     }
 
 }

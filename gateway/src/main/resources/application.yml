@@ -11,6 +11,9 @@ server:
   port: 1101
 
 zuul:
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 60000
   routes:
     app:
       path: /app/**
@@ -21,3 +24,11 @@ zuul:
     product-service:
       path: /product/**
       url: http://192.168.1.31:8080
+
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 60000

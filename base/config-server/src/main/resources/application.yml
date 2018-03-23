@@ -12,6 +12,13 @@ spring:
           basedir: base/config-server/target/config
     bus:
       enabled: false
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: 111111
+
+
 server:
   port: 8888
 

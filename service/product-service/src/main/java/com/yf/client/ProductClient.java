@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.math.BigDecimal;
 import java.util.List;
 
+//@FeignClient(name = "product-service",fallback = ProductHystrixFallback.class)
 @FeignClient("product-service")
 public interface ProductClient {
 
