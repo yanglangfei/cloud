@@ -1,4 +1,6 @@
 spring:
+  zipkin:
+    base-url: http://localhost:1158
   application:
     name: discover
   cloud:
