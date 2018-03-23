@@ -11,3 +11,7 @@ server:
 logging:
   level: debug
 
+
+feign:
+  hystrix:
+    enabled: false   #禁用 feign 断路超时，解决第一次访问超时
