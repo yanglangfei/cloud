@@ -11,7 +11,7 @@ public interface UserSkin {
      * 用户登录
      * @return
      */
-    @Input(USER_LOGIN)
+    @Input(UserSkin.USER_LOGIN)
     SubscribableChannel userLogin();
 
 }

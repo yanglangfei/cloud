@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 
 @SpringCloudApplication
-@EnableFeignClients("com.yf.client")
+@EnableFeignClients(basePackages = "com.yf.client")
 @EnableBinding({UserSource.class})
 public class UserApplication {
 

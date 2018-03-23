@@ -6,6 +6,10 @@ spring:
       profile: dev
       uri: http://localhost:8888
       fail-fast: true
+  http:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 20MB
 server:
   port: 8084
 logging:

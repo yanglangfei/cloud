@@ -62,10 +62,12 @@
         </dependency>
 
         <!--  rabbitMQ  -->
-        <dependency>
+       <!-- <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-stream</artifactId>
-        </dependency>
+        </dependency>-->
+
+        <!--  包含 stream 和 rabbit-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-stream-rabbit</artifactId>

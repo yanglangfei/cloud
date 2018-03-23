@@ -1,6 +1,8 @@
 package com.yf.controller;
 import com.yf.event.UserSource;
 import com.yf.model.User;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -16,12 +18,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @RefreshScope
+@Slf4j
 public class UserController {
 
     private List<User> users=new ArrayList<>();
 
     @Autowired
     private UserSource userSource;
+
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
     @Value("${define.auther}")
     private  String userName;
@@ -42,7 +48,10 @@ public class UserController {
     @PostMapping("/login")
     public  User login(Long id){
         User user=new User(id,"张三",12);
-        userSource.userLogin().send(MessageBuilder.withPayload(user).build());
+        //发送消息到 product 队列
+        amqpTemplate.convertAndSend("product","I am a user");
+        boolean send = userSource.userLogin().send(MessageBuilder.withPayload(user).build());
+        log.info("消息发送成功-----",send);
         return user;
     }
 

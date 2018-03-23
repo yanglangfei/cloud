@@ -14,6 +14,6 @@ public interface UserSource {
      * 用户登录
      * @return
      */
-    @Output(USER_LOGIN)
+    @Output(UserSource.USER_LOGIN)
     MessageChannel userLogin();
 }
