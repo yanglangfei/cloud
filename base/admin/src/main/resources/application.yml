@@ -18,9 +18,11 @@ spring:
           subject: ${application.name}-${application.id} is ${to.status}   #主题
           text: "#{application.name} (#{application.id})\nstatus changed from #{from.status} to #{to.status}\n\n#{application.healthUrl}"
       routes:
-        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream,turbine.stream
+        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream,turbine.stream,activiti
       turbine:
         enabled: true
+        clusters: default
+        url: ${SPRING_BOOT_ADMIN_TURBINE_URL:http://localhost:1115/turbine.stream}
 
 
       #monitor:

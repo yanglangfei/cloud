@@ -21,7 +21,7 @@ import java.util.List;
 @Slf4j
 public class UserController {
 
-    private List<User> users=new ArrayList<>();
+    private List<User> users=new ArrayList<User>();
 
     @Autowired
     private UserSource userSource;

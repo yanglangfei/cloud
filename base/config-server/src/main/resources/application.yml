@@ -8,8 +8,6 @@ spring:
       server:
         git:
           uri: https://github.com/yanglangfei/cloud-config
-          password: wz5899117
-          username: 185601452@qq.com
           search-paths: /config
           basedir: base/config-server/target/config
     bus:
