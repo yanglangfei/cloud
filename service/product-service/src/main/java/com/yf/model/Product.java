@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -14,7 +15,19 @@ public class Product implements Serializable {
 
     private  Long id;
 
-    private  String name;
+    private  String userName;
 
-    private BigDecimal price;
+    private  String password;
+
+    private  Double salary;
+
+    private Date birthday;
+
+    private String gender;
+
+    private  String station;
+
+    private  String telPhone;
+
+    private String remark;
 }

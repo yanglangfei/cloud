@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yf.mapper.ProductMapper">
+
+    <resultMap id="BaseResultMap" type="com.yf.model.Product">
+        <result column="id" property="id"/>
+        <result column="username" property="userName"/>
+        <result column="password" property="password"/>
+        <result column="salary" property="salary"/>
+        <result column="birthday" property="birthday"/>
+        <result column="gender" property="station"/>
+        <result column="station" property="transWay"/>
+        <result column="telephone" property="telPhone"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+    <!--基础列-->
+    <sql id="Base_Columns">
+        id,
+        username,
+        password,
+        salary,
+        birthday,
+        gender,
+        station,
+        telephone,
+        remark
+    </sql>
+
+
+    <!--更新-->
+    <update id="update" parameterType="com.yf.model.Product">
+        UPDATE t_user
+        <set>
+            <if test="userName != null">
+                username = #{userName},
+            </if>
+            <if test="telPhone != null">
+                telephone = #{telPhone},
+            </if>
+        </set>
+        WHERE
+        id = #{id}
+    </update>
+
+
+    <!--基础连接查询-->
+    <sql id="Base_Joins">
+
+    </sql>
+
+    <!--查询所有记录-->
+    <select id="findAll" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Columns"/>
+        FROM
+        t_user a
+        ORDER BY
+        a.id DESC
+    </select>
+
+    <!--查询列表-->
+    <select id="findList" parameterType="Map" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Columns"/>
+        FROM
+        t_user a
+        <where>
+            1 = 1
+            <if test="telPhone != null">
+                AND a.telephone = #{telPhone}
+            </if>
+            <if test="gender != null">
+                AND a.gender = #{gender}
+            </if>
+        </where>
+        ORDER BY
+        a.id DESC
+    </select>
+
+
+
+    <!--根据ID查询-->
+    <select id="findOne" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        SELECT
+        <include refid="Base_Columns"/>
+        FROM t_user a
+        <include refid="Base_Joins"/>
+        WHERE
+        a.id = #{id}
+    </select>
+
+
+    <!--保存-->
+    <insert id="save" parameterType="com.yf.model.Product" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO t_user(
+        <include refid="Base_Columns"></include>
+        ) VALUES (
+        #{id},
+        #{userName},
+        #{password},
+        #{salary},
+        #{birthday},
+        #{gender},
+        #{station},
+        #{telPhone},
+        #{remark}
+        )
+    </insert>
+
+
+    <!--删除-->
+    <update id="delete" parameterType="java.lang.Long">
+        UPDATE
+        t_user
+        SET
+        is_deleted = 1
+        WHERE
+        id = #{id}
+    </update>
+</mapper>
