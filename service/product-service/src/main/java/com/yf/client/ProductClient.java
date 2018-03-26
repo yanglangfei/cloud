@@ -1,5 +1,6 @@
 package com.yf.client;
 
+import com.yf.lib.vo.RespVO;
 import com.yf.model.Product;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,15 +16,15 @@ import java.util.List;
 public interface ProductClient {
 
     @PostMapping("/product/add")
-    void addProduct(@RequestParam("id") Long id,
-                     @RequestParam("userName") String userName,
-                     @RequestParam("password") String  password,
-                     @RequestParam(value = "salary",required = false) Double salary,
-                     @RequestParam(value = "birthday",required = false) Date birthday,
-                     @RequestParam(value = "gender",required = false) String gender,
-                     @RequestParam(value = "station",required = false) String station,
-                     @RequestParam("telPhone") String telPhone,
-                     @RequestParam(value = "remark",required = false) String remark);
+    RespVO addProduct(@RequestParam("id") Long id,
+                      @RequestParam("userName") String userName,
+                      @RequestParam("password") String  password,
+                      @RequestParam(value = "salary",required = false) Double salary,
+                      @RequestParam(value = "birthday",required = false) Date birthday,
+                      @RequestParam(value = "gender",required = false) String gender,
+                      @RequestParam(value = "station",required = false) String station,
+                      @RequestParam("telPhone") String telPhone,
+                      @RequestParam(value = "remark",required = false) String remark);
 
 
     @GetMapping("/product/value")

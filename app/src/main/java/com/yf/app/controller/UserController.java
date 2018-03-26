@@ -2,6 +2,7 @@ package com.yf.app.controller;
 
 import com.yf.client.ProductClient;
 import com.yf.client.UserClient;
+import com.yf.lib.vo.RespVO;
 import com.yf.model.Product;
 import com.yf.model.User;
 import io.swagger.annotations.Api;
@@ -73,16 +74,16 @@ public class UserController {
             @ApiImplicitParam(name = "remark", value = "备注", dataType = "String", paramType = "query"),
     })
     @GetMapping("/addProduct")
-    public  void addProduct(@RequestParam Long id,
-                              @RequestParam String userName,
-                              @RequestParam String  password,
-                              @RequestParam(value = "salary",required = false) Double salary,
-                              @RequestParam(value = "birthday",required = false) Date birthday,
-                              @RequestParam(value = "gender",required = false) String gender,
-                              @RequestParam(value = "station",required = false) String station,
-                              @RequestParam String telPhone,
-                              @RequestParam(value = "remark",required = false) String remark){
-        productClient.addProduct(id,userName,password,salary,birthday,gender,station,telPhone,remark);
+    public RespVO addProduct(@RequestParam Long id,
+                             @RequestParam String userName,
+                             @RequestParam String  password,
+                             @RequestParam(value = "salary",required = false) Double salary,
+                             @RequestParam(value = "birthday",required = false) Date birthday,
+                             @RequestParam(value = "gender",required = false) String gender,
+                             @RequestParam(value = "station",required = false) String station,
+                             @RequestParam String telPhone,
+                             @RequestParam(value = "remark",required = false) String remark){
+        return productClient.addProduct(id,userName,password,salary,birthday,gender,station,telPhone,remark);
     }
 
 

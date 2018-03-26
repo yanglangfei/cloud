@@ -1,5 +1,7 @@
 package com.yf.controller;
 
+import com.yf.lib.vo.RespVO;
+import com.yf.lib.vo.RespVOBuilder;
 import com.yf.model.Product;
 import com.yf.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
@@ -27,18 +29,20 @@ public class ProductController {
     private String productName;
 
     @PostMapping("/add")
-    public void addProduct(@RequestParam("id") Long id,
-                           @RequestParam("userName") String userName,
-                           @RequestParam("password") String  password,
-                           @RequestParam(value = "salary",required = false) Double salary,
-                           @RequestParam(value = "birthday",required = false) Date birthday,
-                           @RequestParam(value = "gender",required = false) String gender,
-                           @RequestParam(value = "station",required = false) String station,
-                           @RequestParam("telPhone") String telPhone,
-                           @RequestParam(value = "remark",required = false) String remark) {
+    public RespVO addProduct(@RequestParam("id") Long id,
+                             @RequestParam("userName") String userName,
+                             @RequestParam("password") String  password,
+                             @RequestParam(value = "salary",required = false) Double salary,
+                             @RequestParam(value = "birthday",required = false) Date birthday,
+                             @RequestParam(value = "gender",required = false) String gender,
+                             @RequestParam(value = "station",required = false) String station,
+                             @RequestParam("telPhone") String telPhone,
+                             @RequestParam(value = "remark",required = false) String remark) {
         Product product = new Product(id, userName, password,salary,birthday,gender,station,telPhone,remark);
         Integer addResult = productService.addProduct(product);
         log.info("添加User {}",addResult);
+        return RespVOBuilder.success();
+
     }
 
 
