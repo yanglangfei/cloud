@@ -14,9 +14,8 @@ import org.springframework.stereotype.Component;
 public class ProductListener {
 
     @RabbitHandler
-    public void process(User user) {
-        String jsonString = JSON.toJSONString(user);
-        log.info("Receiver: {} ",jsonString);
+    public void process(String user) {
+        log.info("Receiver: {} ",user);
     }
 
 

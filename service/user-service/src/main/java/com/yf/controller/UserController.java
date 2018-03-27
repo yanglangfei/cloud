@@ -50,14 +50,22 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public  User login(Long id){
-        User user=new User(id,"张三",12);
+    public  User login(Long id,String name,Integer age){
+        User user=new User(id,name,age);
         // redis 存储用户信息
         sessionService.saveUserToken(id,user);
         //发送消息到 product 队列
-        amqpTemplate.convertAndSend("product",user);
+        amqpTemplate.convertAndSend("product",name);
         boolean send = userSource.userLogin().send(MessageBuilder.withPayload(user).build());
         log.info("消息发送成功-----",send);
+        return user;
+    }
+
+
+    @GetMapping("/info")
+    public  User userInfo(Long id){
+        // redis 存储用户信息
+        User user = sessionService.getUserToken(id);
         return user;
     }
 

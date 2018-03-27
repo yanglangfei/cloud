@@ -2,6 +2,7 @@ package com.yf.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.yf.model.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -12,6 +13,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 @Service
+@Slf4j
 public class SessionServiceImpl implements SessionService {
 
     @Autowired
@@ -51,10 +53,12 @@ public class SessionServiceImpl implements SessionService {
         }
         ValueOperations<String, String> operations = stringRedisTemplate.opsForValue();
         String uuid = operations.get(USER_TOKEN_KEY + userId);
+        log.info("uuid: {}",uuid);
         if(!stringRedisTemplate.hasKey(USER_SESSION_KEY+uuid)){
             return null;
         }
         String userStr = operations.get(USER_SESSION_KEY + uuid);
+        log.info("userStr: {} userStr");
         User user = JSONObject.parseObject(userStr, User.class);
         return user;
     }

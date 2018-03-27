@@ -18,6 +18,9 @@ public interface UserClient {
     String getValue();
 
     @PostMapping("/user/login")
-    User login(@RequestParam("id") Long id);
+    User login(@RequestParam("id") Long id,@RequestParam("name") String name,@RequestParam("age") Integer age);
+
+    @GetMapping("/user/info")
+    User userInfo(@RequestParam("id") Long id);
 
 }

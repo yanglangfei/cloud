@@ -111,13 +111,25 @@ public class UserController {
         return  productClient.findByPhone(phone);
     }
 
-    @ApiOperation(value = "用户登录", httpMethod = "POST", notes = "用户登录")
+    @ApiOperation(value = "用户登录", httpMethod = "GET", notes = "用户登录")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userId", value = "用户ID", dataType = "long", paramType = "query",required = true),
+            @ApiImplicitParam(name = "name", value = "用户名", dataType = "String", paramType = "query",required = true),
+            @ApiImplicitParam(name = "age", value = "年龄", dataType = "int", paramType = "query",required = true),
+    })
+    @GetMapping("/login")
+    public  User userLogin(@RequestParam Long userId,@RequestParam String name,@RequestParam Integer age){
+        return  userClient.login(userId,name,age);
+    }
+
+    @ApiOperation(value = "获取用户信息", httpMethod = "GET", notes = "获取用户信息")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "userId", value = "用户ID", dataType = "long", paramType = "query",required = true),
     })
-    @GetMapping("/login")
-    public  User userLogin(@RequestParam Long userId){
-        return  userClient.login(userId);
+    @GetMapping("/userInfo")
+    public  User userInfo(@RequestParam Long userId){
+        return  userClient.userInfo(userId);
     }
+
 
 }
