@@ -9,17 +9,20 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
 
 @RestController
 @RefreshScope
+@Slf4j
 @Api(value = "UserController", description = "用户接口")
 public class UserController {
 
@@ -47,7 +50,10 @@ public class UserController {
 
     })
     @GetMapping("/getUserName")
-    public  String getUserValue(){
+    public  String getUserValue(HttpServletRequest request){
+        String version = request.getHeader("version");
+        int remotePort = request.getRemotePort();
+        log.info("当前访问 version: {} ,remotePort: {} ,  8084",version,remotePort);
         return  userClient.getValue();
     }
 
