@@ -18,6 +18,7 @@
         <module>turbine</module>
         <module>libs</module>
         <module>zipkin</module>
+        <module>hystrix</module>
     </modules>
 
 

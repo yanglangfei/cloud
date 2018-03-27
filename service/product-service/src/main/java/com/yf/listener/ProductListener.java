@@ -1,16 +1,22 @@
 package com.yf.listener;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.yf.model.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
 @RabbitListener(queues = "product")
+@Slf4j
 public class ProductListener {
 
     @RabbitHandler
-    public void process(String hello) {
-        System.out.println("Receiver : " + hello);
+    public void process(User user) {
+        String jsonString = JSON.toJSONString(user);
+        log.info("Receiver: {} ",jsonString);
     }
 
 

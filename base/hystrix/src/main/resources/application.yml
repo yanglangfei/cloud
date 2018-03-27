@@ -1,6 +1,6 @@
 spring:
   application:
-    name: turbine
+    name: hystrix
   cloud:
     config:
       profile: dev
@@ -8,14 +8,7 @@ spring:
       fail-fast: true
 
 server:
-  port: 1115
-turbine:
-  aggregator:
-    clusterConfig: default
-  app-config: user-service,product-service,app
-  clusterNameExpression: new String("default")
- # stream:
- #   port: 8989
+  port: 11152
 
 
 management:
@@ -28,3 +21,7 @@ security:
     name: admin
     password: 111111
 hystrix.stream.dashboard.intervalInMilliseconds: 5000
+
+feign:
+  hystrix:
+    enabled: true

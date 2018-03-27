@@ -1,6 +1,7 @@
 package com.yf.controller;
 import com.yf.event.UserSource;
 import com.yf.model.User;
+import com.yf.service.SessionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class UserController {
     private UserSource userSource;
 
     @Autowired
+    private SessionService sessionService;
+
+    @Autowired
     private AmqpTemplate amqpTemplate;
 
     @Value("${define.auther}")
@@ -48,8 +52,10 @@ public class UserController {
     @PostMapping("/login")
     public  User login(Long id){
         User user=new User(id,"张三",12);
+        // redis 存储用户信息
+        sessionService.saveUserToken(id,user);
         //发送消息到 product 队列
-        amqpTemplate.convertAndSend("product","I am a user");
+        amqpTemplate.convertAndSend("product",user);
         boolean send = userSource.userLogin().send(MessageBuilder.withPayload(user).build());
         log.info("消息发送成功-----",send);
         return user;
