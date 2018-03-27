@@ -74,17 +74,12 @@
     </build>
 
 
-    <!-- <distributionManagement>
-         <repository>
-             <id>alimaven</id>
-             <name>aliyun maven</name>
-             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-         </repository>
-         <snapshotRepository>
-             <id>snapshots</id>
-             <name>Nexus Snapshot Repository</name>
-             <url>http://maven.aliyun.com/nexus/content/repositories/snapshots/</url>
-         </snapshotRepository>
-     </distributionManagement>-->
+    <distributionManagement>
+            <repository>
+                <id>mvnrepo</id>
+                <name>mvn repository</name>
+                <url>https://gitee.com/yanglangfei/mvnrepo/blob/master</url>
+            </repository>
+     </distributionManagement>
 
 </project>

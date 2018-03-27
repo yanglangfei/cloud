@@ -28,12 +28,12 @@ public class RoutesFilter extends ZuulFilter {
         RequestContext requestContext = RequestContext.getCurrentContext();
         HttpServletRequest request = requestContext.getRequest();
 
-        String version = request.getHeader("version");
+       /* String version = request.getHeader("version");
 
         if(null!=version){
             //根据  metadata-map 值 转发到对应的 app service
             RibbonFilterContextHolder.getCurrentContext().add("version",version);
-        }
+        }*/
         return null;
     }
 }
