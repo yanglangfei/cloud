@@ -1,15 +1,15 @@
 package com.yf.service;
 
-import com.yf.model.Product;
+import com.yf.model.TbProduct;
 
 import java.util.List;
 
 public interface ProductService {
 
-    List<Product>  findAll();
+    List<TbProduct>  findAll();
 
-    List<Product>  findByPhone(String telPhone);
+    List<TbProduct>  findByName(String name);
 
 
-    Integer  addProduct(Product product);
+    Integer  addProduct(TbProduct product);
 }

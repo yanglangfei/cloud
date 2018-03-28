@@ -1,7 +1,8 @@
-package com.yf.service;
+package com.yf.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.yf.model.User;
+import com.yf.model.TbUser;
+import com.yf.service.SessionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -26,7 +27,7 @@ public class SessionServiceImpl implements SessionService {
     private  Long SAVE_TIME=7L;
 
     @Override
-    public void saveUserToken(Long userId,User user) {
+    public void saveUserToken(Long userId,TbUser user) {
         ValueOperations<String, String> operations = stringRedisTemplate.opsForValue();
         String uuid=UUID.randomUUID().toString().replace("-","");
         operations.set(USER_TOKEN_KEY+userId,uuid,SAVE_TIME,TimeUnit.DAYS);
@@ -47,7 +48,7 @@ public class SessionServiceImpl implements SessionService {
     }
 
     @Override
-    public User getUserToken(Long userId) {
+    public TbUser getUserToken(Long userId) {
         if(!stringRedisTemplate.hasKey(USER_TOKEN_KEY+userId)){
             return null;
         }
@@ -59,7 +60,7 @@ public class SessionServiceImpl implements SessionService {
         }
         String userStr = operations.get(USER_SESSION_KEY + uuid);
         log.info("userStr: {} userStr");
-        User user = JSONObject.parseObject(userStr, User.class);
+        TbUser user = JSONObject.parseObject(userStr, TbUser.class);
         return user;
     }
 }

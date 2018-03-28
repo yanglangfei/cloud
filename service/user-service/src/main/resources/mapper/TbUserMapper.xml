@@ -1,30 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yf.mapper.TbProductMapper">
+<mapper namespace="com.yf.mapper.TbUserMapper">
 
-    <resultMap id="BaseResultMap" type="com.yf.model.TbProduct">
+    <resultMap id="BaseResultMap" type="com.yf.model.TbUser">
         <result column="id" property="id"/>
-        <result column="name" property="name"/>
-        <result column="price" property="price"/>
+        <result column="username" property="userName"/>
+        <result column="password" property="password"/>
+        <result column="salary" property="salary"/>
+        <result column="birthday" property="birthday"/>
+        <result column="gender" property="station"/>
+        <result column="station" property="transWay"/>
+        <result column="telephone" property="telPhone"/>
+        <result column="remark" property="remark"/>
     </resultMap>
 
     <!--基础列-->
     <sql id="Base_Columns">
         id,
-        name,
-        price
+        username,
+        password,
+        salary,
+        birthday,
+        gender,
+        station,
+        telephone,
+        remark
     </sql>
 
 
     <!--更新-->
-    <update id="update" parameterType="com.yf.model.TbProduct">
-        UPDATE t_product
+    <update id="update" parameterType="com.yf.model.TbUser">
+        UPDATE t_user
         <set>
-            <if test="name != null">
-                name = #{name},
+            <if test="userName != null">
+                username = #{userName},
             </if>
-            <if test="price != null">
-                price = #{price},
+            <if test="telPhone != null">
+                telephone = #{telPhone},
             </if>
         </set>
         WHERE
@@ -42,7 +54,7 @@
         SELECT
         <include refid="Base_Columns"/>
         FROM
-        t_product a
+        t_user a
         ORDER BY
         a.id DESC
     </select>
@@ -52,11 +64,14 @@
         SELECT
         <include refid="Base_Columns"/>
         FROM
-        t_product a
+        t_user a
         <where>
             1 = 1
-            <if test="name != null">
-                AND a.name = #{name}
+            <if test="telPhone != null">
+                AND a.telephone = #{telPhone}
+            </if>
+            <if test="gender != null">
+                AND a.gender = #{gender}
             </if>
         </where>
         ORDER BY
@@ -69,7 +84,7 @@
     <select id="findOne" resultMap="BaseResultMap" parameterType="java.lang.Long">
         SELECT
         <include refid="Base_Columns"/>
-        FROM t_product a
+        FROM t_user a
         <include refid="Base_Joins"/>
         WHERE
         a.id = #{id}
@@ -77,14 +92,20 @@
 
 
     <!--保存-->
-    <insert id="save" parameterType="com.yf.model.TbProduct" useGeneratedKeys="true"
+    <insert id="save" parameterType="com.yf.model.TbUser" useGeneratedKeys="true"
             keyProperty="id">
-        INSERT INTO t_product(
+        INSERT INTO t_user(
         <include refid="Base_Columns"></include>
         ) VALUES (
         #{id},
-        #{name},
-        #{price}
+        #{userName},
+        #{password},
+        #{salary},
+        #{birthday},
+        #{gender},
+        #{station},
+        #{telPhone},
+        #{remark}
         )
     </insert>
 
@@ -92,7 +113,7 @@
     <!--删除-->
     <update id="delete" parameterType="java.lang.Long">
         UPDATE
-        t_product
+        t_user
         SET
         is_deleted = 1
         WHERE

@@ -1,7 +1,6 @@
 package com.yf.service.impl;
-
-import com.yf.mapper.ProductMapper;
-import com.yf.model.Product;
+import com.yf.mapper.TbProductMapper;
+import com.yf.model.TbProduct;
 import com.yf.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,24 +14,24 @@ import java.util.Map;
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
-    private ProductMapper productMapper;
+    private TbProductMapper productMapper;
 
 
     @Override
-    public List<Product> findAll() {
+    public List<TbProduct> findAll() {
         return productMapper.findAll();
     }
 
     @Override
-    public List<Product> findByPhone(String telPhone) {
+    public List<TbProduct> findByName(String name) {
         Map<String, Object> param=new HashMap<>();
-        param.put("telPhone",telPhone);
+        param.put("name",name);
         return productMapper.findList(param);
     }
 
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
-    public Integer addProduct(Product product) {
+    public Integer addProduct(TbProduct product) {
         return productMapper.save(product);
 
     }

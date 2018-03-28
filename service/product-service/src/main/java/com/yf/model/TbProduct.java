@@ -3,16 +3,19 @@ package com.yf.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class User implements Serializable{
+@NoArgsConstructor
+public class TbProduct implements Serializable {
 
     private  Long id;
 
     private  String name;
 
-    private  Integer age;
+    private  BigDecimal price;
 }

@@ -1,16 +1,16 @@
 package com.yf.service;
 
-import com.yf.model.User;
+import com.yf.model.TbUser;
 
 public interface SessionService {
 
-    void  saveUserToken(Long userId,User user);
+    void  saveUserToken(Long userId,TbUser user);
 
 
     void  clearUserToken(Long userId);
 
 
-    User getUserToken(Long userId);
+    TbUser getUserToken(Long userId);
 
 
 }
