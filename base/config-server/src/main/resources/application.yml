@@ -1,4 +1,5 @@
 spring:
+  profiles: default
   zipkin:
     base-url: http://localhost:1158
   application:

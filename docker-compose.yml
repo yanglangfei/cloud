@@ -1,0 +1,77 @@
+discover:
+  image: yf/discover
+  hostname: discover
+  ports:
+    - "8761:8761"
+
+app:
+  image: yf/app
+  hostname: app
+  ports:
+    - "8088:8088"
+  links:
+    - "discover"
+
+gateway:
+  image:  yf/gateway
+  ports:
+    - "1101:1101"
+  links:
+    - "discover"
+    - "app"
+
+task:
+  image:  yf/task
+  ports:
+    - "1582:1582"
+  links:
+    - "discover"
+    - "app"
+    - "gateway"
+
+user-service:
+  image:  yf/user-service
+  ports:
+    - "1002:1002"
+  links:
+    - "discover"
+    - "app"
+    - "gateway"
+    - "task"
+
+product-service:
+  image:  yf/product-service
+  ports:
+    - "1003:1003"
+  links:
+    - "discover"
+    - "app"
+    - "gateway"
+    - "task"
+    - "user-service"
+
+config-server:
+  image:  yf/config-server
+  ports:
+    - "8888:8888"
+  links:
+    - "discover"
+    - "app"
+    - "gateway"
+    - "task"
+    - "user-service"
+    - "product-service"
+
+
+admin:
+  image:  yf/admin
+  ports:
+    - "8855:8855"
+  links:
+    - "discover"
+    - "app"
+    - "gateway"
+    - "task"
+    - "user-service"
+    - "product-service"
+    - "config-server"
