@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
-
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,7 +18,6 @@ import java.util.List;
 @RefreshScope
 @Slf4j
 public class ProductController {
-    private List<Product> products = new ArrayList<>();
 
     @Autowired
     private ProductService productService;

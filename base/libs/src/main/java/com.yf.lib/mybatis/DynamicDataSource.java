@@ -17,6 +17,7 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
      * @param readDataSourceSize
      */
     public DynamicDataSource(int readDataSourceSize) {
+        log.info("从库数: {}",readDataSourceSize);
         this.readDataSourceSize = readDataSourceSize;
     }
 

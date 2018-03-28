@@ -45,10 +45,23 @@ public class DataSourceConfig {
         return DataSourceBuilder.create().type(dataSourceType).build();
     }
 
+    /**
+     * 从数据源2
+     * @return
+     */
+    @Bean(name = "readDataSource2")
+    @ConfigurationProperties(prefix = "define.datasource.read2")
+    public DataSource readDataSource2() {
+        log.debug("-----------------------初始化[从2]数据源-----------------------");
+        return DataSourceBuilder.create().type(dataSourceType).build();
+    }
+
+
     @Bean(name = "readDataSources")
     public List<DataSource> readDataSources() {
         List<DataSource> dataSources = new ArrayList<>();
         dataSources.add(readDataSource1());
+        dataSources.add(readDataSource2());
         return dataSources;
     }
 
