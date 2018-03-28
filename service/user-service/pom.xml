@@ -44,21 +44,11 @@
             <version>1.5.0</version>
         </dependency>
 
-        <!-- actuator -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
 
         <!-- feign -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-feign</artifactId>
-        </dependency>
-        <!--hystrix-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-hystrix</artifactId>
         </dependency>
 
         <!--  rabbitMQ  -->
@@ -66,12 +56,6 @@
              <groupId>org.springframework.cloud</groupId>
              <artifactId>spring-cloud-stream</artifactId>
          </dependency>-->
-
-        <!--  包含 stream 和 rabbit-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
-        </dependency>
 
         <!-- redis -->
         <dependency>

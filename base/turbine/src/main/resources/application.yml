@@ -8,23 +8,24 @@ spring:
       fail-fast: true
 
 server:
-  port: 1115
+  port: 1118
 turbine:
   aggregator:
     clusterConfig: default
-  app-config: user-service,product-service,app
-  clusterNameExpression: new String("default")
- # stream:
- #   port: 8989
+  app-config: product-service
+  clusterNameExpression: default
+  combine-host-port: true
+
 
 
 management:
-  security:
-    enabled: true
-security:
-  basic:
-    enabled: false
-  user:
-    name: admin
-    password: 111111
+ # security:
+ #   enabled: true
+  port: 8990
+#security:
+ # basic:
+  #  enabled: false
+  #user:
+  #  name: admin
+   # password: 111111
 hystrix.stream.dashboard.intervalInMilliseconds: 5000
