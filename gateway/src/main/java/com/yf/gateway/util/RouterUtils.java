@@ -1,6 +1,8 @@
 package com.yf.gateway.util;
+import com.alibaba.fastjson.JSONObject;
 import com.netflix.zuul.context.RequestContext;
 import com.yf.gateway.filter.CtxEnum;
+import com.yf.lib.vo.RespVO;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,12 +21,12 @@ public final class RouterUtils {
      *
      * @param ctx
      */
-    public synchronized static void respError(RequestContext ctx) {
+    public synchronized static void respError(RequestContext ctx, RespVO resp) {
         ctx.set(CtxEnum.STOP_NEXT_FILTER, true);
         ctx.setSendZuulResponse(false);//停止继续路由
         ctx.setResponseStatusCode(HttpStatus.OK.value());
         ctx.addZuulResponseHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString());
-        ctx.setResponseBody("返回失败");
+        ctx.setResponseBody(JSONObject.toJSONString(resp));
     }
 
     /**

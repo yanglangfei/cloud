@@ -4,14 +4,14 @@
 
     <resultMap id="BaseResultMap" type="com.yf.model.TbProduct">
         <result column="id" property="id"/>
-        <result column="name" property="name"/>
+        <result column="pname" property="name"/>
         <result column="price" property="price"/>
     </resultMap>
 
     <!--基础列-->
     <sql id="Base_Columns">
         id,
-        name,
+        pname,
         price
     </sql>
 
@@ -21,7 +21,7 @@
         UPDATE t_product
         <set>
             <if test="name != null">
-                name = #{name},
+                pname = #{name},
             </if>
             <if test="price != null">
                 price = #{price},
@@ -56,7 +56,7 @@
         <where>
             1 = 1
             <if test="name != null">
-                AND a.name = #{name}
+                AND a.pname = #{name}
             </if>
         </where>
         ORDER BY

@@ -69,7 +69,7 @@ public class UserController {
     @ApiImplicitParams({
 
     })
-    @GetMapping("/findAllProduct")
+    @GetMapping("/findAllUser")
     public  List<TbUser> findAllUser(){
         return  userClient.findAllUser();
     }

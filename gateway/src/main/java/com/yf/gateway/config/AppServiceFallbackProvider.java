@@ -1,5 +1,6 @@
 package com.yf.gateway.config;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.cloud.netflix.zuul.filters.route.ZuulFallbackProvider;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -46,8 +47,8 @@ public class AppServiceFallbackProvider implements ZuulFallbackProvider {
             }
 
             @Override
-            public InputStream getBody() throws IOException {
-                return new ByteArrayInputStream("Service-app不可用".getBytes());
+            public InputStream getBody() {
+                return new ByteArrayInputStream(JSONObject.parseObject("Service-app不可用").toJSONString().getBytes());
             }
 
             @Override
