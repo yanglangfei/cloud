@@ -65,14 +65,15 @@ public class AccessLogFilter extends ZuulFilter {
         response.setCharacterEncoding("UTF-8");
         String clientIp = HttpUtils.getClientIp(request);
         String method = request.getMethod();
+        String requestURI = request.getRequestURI();
         String requestUrl = request.getRequestURL().toString();
         String requestParams = HttpUtils.getRequestParams(request);
 
         ValueOperations<String, String> opsForValue = stringRedisTemplate.opsForValue();
-        if(!stringRedisTemplate.hasKey(ACCESS_TOKEN_KEY+clientIp+requestUrl)){
-            opsForValue.set(ACCESS_TOKEN_KEY+clientIp+requestUrl,"1",1, TimeUnit.MINUTES);
+        if(!stringRedisTemplate.hasKey(ACCESS_TOKEN_KEY+clientIp+requestURI)){
+            opsForValue.set(ACCESS_TOKEN_KEY+clientIp+requestURI,"1",1, TimeUnit.MINUTES);
         }
-        Long countHour = opsForValue.increment(ACCESS_TOKEN_KEY+clientIp+requestUrl, 1L);
+        Long countHour = opsForValue.increment(ACCESS_TOKEN_KEY+clientIp+requestURI, 1L);
 
        if(countHour>limitAccess){
            log.info("请求[{}]分钟内请求量[{}],加入过滤", requestUrl, countHour);
