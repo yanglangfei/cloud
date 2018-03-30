@@ -9,9 +9,9 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @EnableZuulProxy
 // 忽略数据库配置  正式项目 libs 应该分离
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
-public class GatewayApplication {
+public class GatewayZuulApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GatewayApplication.class,args);
+        SpringApplication.run(GatewayZuulApplication.class,args);
     }
 }
