@@ -12,8 +12,8 @@ app:
   links:
     - "discover"
 
-gateway:
-  image:  yf/gateway
+gateway-zuul:
+  image:  yf/gateway-zuul
   ports:
     - "1101:1101"
   links:
@@ -27,7 +27,7 @@ task:
   links:
     - "discover"
     - "app"
-    - "gateway"
+    - "gateway-zuul"
 
 user-service:
   image:  yf/user-service
@@ -36,7 +36,7 @@ user-service:
   links:
     - "discover"
     - "app"
-    - "gateway"
+    - "gateway-zuul"
     - "task"
 
 product-service:
@@ -46,7 +46,7 @@ product-service:
   links:
     - "discover"
     - "app"
-    - "gateway"
+    - "gateway-zuul"
     - "task"
     - "user-service"
 
@@ -57,7 +57,7 @@ config-server:
   links:
     - "discover"
     - "app"
-    - "gateway"
+    - "gateway-zuul"
     - "task"
     - "user-service"
     - "product-service"
@@ -70,7 +70,7 @@ admin:
   links:
     - "discover"
     - "app"
-    - "gateway"
+    - "gateway-zuul"
     - "task"
     - "user-service"
     - "product-service"
