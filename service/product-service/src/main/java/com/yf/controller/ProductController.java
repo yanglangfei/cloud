@@ -36,9 +36,9 @@ public class ProductController {
     }
 
 
-    @GetMapping("/value")
-    public String getValue() {
-        return productName;
+    @PostMapping("/del")
+    public  Integer  deleteProduct(Long id){
+        return  productService.deleteProduct(id);
     }
 
     @GetMapping("/findAll")
@@ -47,9 +47,22 @@ public class ProductController {
     }
 
 
+    @PostMapping("/update")
+    public  Integer updateProduct(Long id,String name,BigDecimal price){
+        return productService.updateProduct(id,name,price);
+    }
+
+
+
     @GetMapping("/findByName")
     public  List<TbProduct> findByPhone(String name){
         return productService.findByName(name);
+    }
+
+
+    @GetMapping("/value")
+    public String getValue() {
+        return productName;
     }
 
 

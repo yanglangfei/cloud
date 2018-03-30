@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -71,6 +72,18 @@ public class ProductController {
     @GetMapping("/findProductByName")
     public List<TbProduct> findProductByName(String name) {
         return productClient.findByName(name);
+    }
+
+
+    @PostMapping("/delProduct")
+    public  Integer delProduct(Long id){
+        return productClient.deleteProduct(id);
+    }
+
+
+    @PostMapping("/updateProduct")
+    public Integer updateProduct(Long id,String name,BigDecimal price){
+        return productClient.updateProduct(id,name,price);
     }
 
 

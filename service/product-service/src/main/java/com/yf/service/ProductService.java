@@ -2,6 +2,7 @@ package com.yf.service;
 
 import com.yf.model.TbProduct;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface ProductService {
@@ -12,4 +13,9 @@ public interface ProductService {
 
 
     Integer  addProduct(TbProduct product);
+
+
+    Integer deleteProduct(Long id);
+
+    Integer updateProduct(Long id,String name, BigDecimal price);
 }
