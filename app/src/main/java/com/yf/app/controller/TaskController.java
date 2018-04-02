@@ -12,10 +12,12 @@ import java.util.concurrent.CountDownLatch;
 @Slf4j
 public class TaskController {
 
+    private  int number=3;
+
     /**
      * 它允许一个或多个线程等待直到在其他线程中一组操作执行完成。
      */
-    private CountDownLatch countDownLatch=new CountDownLatch(100);
+    private CountDownLatch countDownLatch=new CountDownLatch(number);
 
     @Autowired
     private Task task;
@@ -71,7 +73,7 @@ public class TaskController {
 
     @GetMapping("/latchTask")
     public  void  latchTask() throws InterruptedException {
-        for(int i=0;i<3;i++){
+        for(int i=0;i<number;i++){
             LatchThread demo = new LatchThread(countDownLatch);
             demo.start();
             log.info("i : {} ",i);
