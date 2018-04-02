@@ -25,6 +25,7 @@
         <module>gateway-zuul</module>
         <module>gateway-oral</module>
         <module>web-yf</module>
+        <module>api-open-yf</module>
     </modules>
 
     <dependencies>

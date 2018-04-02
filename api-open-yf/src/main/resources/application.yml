@@ -1,0 +1,72 @@
+
+spring:
+  application:
+    name: api-open-yf
+  cloud:
+    config:
+      profile: dev
+      uri: http://localhost:8888
+      fail-fast: true
+  http:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 20MB
+  profiles:
+    active: default
+logging:
+  level: debug
+
+
+feign:
+  hystrix:
+    enabled: false   #禁用 feign 断路超时，解决第一次访问超时
+
+
+---
+server:
+  port: 8084
+eureka:
+  instance:
+    metadata-map:
+      version: 1.0
+spring:
+  profiles: v1.0-1
+
+---
+server:
+  port: 8085
+eureka:
+  instance:
+    metadata-map:
+      version: 1.0
+spring:
+  profiles: v1.0-2
+
+---
+
+
+---
+server:
+  port: 8086
+eureka:
+  instance:
+    metadata-map:
+      version: 2.0
+spring:
+  profiles: v2.0-1
+
+---
+server:
+  port: 8087
+eureka:
+  instance:
+    metadata-map:
+      version: 2.0
+spring:
+  profiles: v2.0-2
+
+---
+server:
+  port: 8088
+spring:
+  profiles: default
