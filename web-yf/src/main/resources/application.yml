@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: web-yf
+  cloud:
+    config:
+      profile: dev
+      uri: http://localhost:8888
+      fail-fast: true
+  datasource:
+    primary:
+      url:
+      username:
+      password:
+      driver-class-name: com.mysql.jdbc.Driver
+    shiro:
+      url:
+      username:
+      password:
+      driver-class-name: com.mysql.jdbc.Driver
+
+
+
+redis:
+  shiro:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 0
+    password: 111111
+
+server:
+  port: 8801
