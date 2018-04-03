@@ -8,7 +8,6 @@ import org.apache.shiro.web.util.WebUtils;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import java.io.Serializable;
-
 /**
  * 自定义sessionId获取
  */
