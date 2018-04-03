@@ -8,24 +8,21 @@ spring:
       fail-fast: true
   datasource:
     primary:
-      url:
-      username:
-      password:
+      url: dbc:mysql://121.40.227.121:3306/yfApp?useUnicode=true&characterEncoding=UTF-8
+      username: master1
+      password: 123456
       driver-class-name: com.mysql.jdbc.Driver
     shiro:
-      url:
-      username:
-      password:
+      url: dbc:mysql://121.40.227.121:3306/yfApp?useUnicode=true&characterEncoding=UTF-8
+      username: master1
+      password: 123456
       driver-class-name: com.mysql.jdbc.Driver
-
-
-
-redis:
-  shiro:
-    host: 127.0.0.1
-    port: 6379
-    timeout: 0
-    password: 111111
+  redis:
+    shiro:
+      host: 127.0.0.1
+      port: 6379
+      timeout: 0
+      password: admin
 
 server:
   port: 8801
