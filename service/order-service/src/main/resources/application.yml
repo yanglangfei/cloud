@@ -1,0 +1,14 @@
+spring:
+  profiles: default
+  application:
+    name: order-service
+  cloud:
+    config:
+      profile: dev
+      uri: http://localhost:8888/
+      fail-fast: true
+
+server:
+  port: 1006
+logging:
+  level: debug

@@ -1,0 +1,14 @@
+spring:
+  profiles: default
+  application:
+    name: app-service
+  cloud:
+    config:
+      profile: dev
+      uri: http://localhost:8888/
+      fail-fast: true
+
+server:
+  port: 1005
+logging:
+  level: debug
