@@ -12,3 +12,15 @@ server:
   port: 1009
 logging:
   level: debug
+
+
+
+fdfs:
+  soTimeout: 1500
+  connectTimeout: 600
+  thumbImage:             #缩略图生成参数
+    width: 150
+    height: 150
+  trackerList:            #TrackerList参数,支持多个
+    - 192.168.0.201:22122
+    - 192.168.0.202:22122

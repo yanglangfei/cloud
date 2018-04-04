@@ -56,12 +56,6 @@
             <version>1.5.8.RELEASE</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.18</version>
-        </dependency>
-
 
         <!-- feign -->
         <dependency>

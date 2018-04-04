@@ -29,12 +29,6 @@
             <artifactId>spring-boot</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
 
 
         <!--  lib-mybatis 读写分离配置-->
@@ -54,13 +48,6 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.2.3</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
 
 
         <!--  lib-druid mysql 监控配置  -->
