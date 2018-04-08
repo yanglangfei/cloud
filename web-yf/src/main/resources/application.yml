@@ -23,6 +23,11 @@ spring:
       port: 6379
       timeout: 0
       password: admin
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+    cache: false    #开发时关闭缓存,不然没法看到实时页面
 
 server:
   port: 8801
