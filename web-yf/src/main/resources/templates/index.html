@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
-    <script type="text/javascript" src="../static/js/index.js"></script>
-    <link type="text/css" rel="../static/css/index.css"/>
+
+    <link type="text/css" rel="stylesheet"  th:href="@{/css/index.css}"   href="../static/css/index.css"/>
+    <script type="text/javascript" th:src="@{/js/index.js}" src="../static/js/index.js"></script>
 </head>
 <body>
 
 <h3> hi <span th:text="${user}">mike</span> welcom to visit index</h3>
 
-<img  th:href="@{static/image/icon.png}" src="../static/image/icon.png">
+<img  th:href="@{/image/icon.png}" src="../static/image/icon.png">
 
 </body>
 </html>
