@@ -60,6 +60,7 @@ public class BlacklistFilter extends ZuulFilter {
         String ip = HttpUtils.getClientIp(request);
 
         if (stringRedisTemplate.hasKey(BLACKLIST_PREFIX + ip)) {
+            //禁用 IP 访问
             RouterUtils.respError(ctx, RespVOBuilder.failure("拒绝访问"));
         }
 
