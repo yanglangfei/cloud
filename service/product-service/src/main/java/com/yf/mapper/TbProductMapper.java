@@ -18,16 +18,16 @@ public interface TbProductMapper extends BaseMapper<TbProduct> {
 
     //先从缓存中查询，如果没有则查询数据库
     @Override
-    @Cacheable(key = "findAll")
+    @Cacheable(key = "'findAll'")
     List<TbProduct> findAll();
 
 
     //更新缓存
-    @CachePut(key = "findAll")
+    @CachePut(key = "'findAll'")
     Integer update(Map<String,Object> param);
 
     //清空缓存
     @Override
-    @CacheEvict(key = "findAll")
+    @CacheEvict(key = "'findAll'")
     Integer delete(Long id);
 }

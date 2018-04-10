@@ -1,11 +1,11 @@
-/*
 package com.yf.client;
 
-import com.yf.model.Product;
+import com.yf.lib.vo.RespVO;
+import com.yf.lib.vo.RespVOBuilder;
+import com.yf.model.TbProduct;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 
 @Component
@@ -13,8 +13,8 @@ public class ProductHystrixFallback implements ProductClient {
 
 
     @Override
-    public void addProduct(Long id, String userName, String password, Double salary, Date birthday, String gender, String station, String telPhone, String remark) {
-
+    public RespVO addProduct(Long id, String name, BigDecimal price) {
+        return RespVOBuilder.failure();
     }
 
     @Override
@@ -23,13 +23,24 @@ public class ProductHystrixFallback implements ProductClient {
     }
 
     @Override
-    public List<Product> findAllProduct() {
+    public List<TbProduct> findAllProduct() {
         return null;
     }
 
     @Override
-    public List<Product> findByPhone(String phone) {
+    public List<TbProduct> findByName(String name) {
         return null;
     }
+
+    @Override
+    public Integer updateProduct(Long id, String name, BigDecimal price) {
+        return -1;
+    }
+
+    @Override
+    public Integer deleteProduct(Long id) {
+        return -1;
+    }
+
+
 }
-*/
