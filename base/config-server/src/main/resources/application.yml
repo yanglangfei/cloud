@@ -10,7 +10,7 @@ spring:
         git:
           uri: https://github.com/yanglangfei/cloud-config
           search-paths: /config
-          basedir: /app
+          basedir: /app/config
     bus:
       enabled: false
   rabbitmq:
