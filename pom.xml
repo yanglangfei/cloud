@@ -26,6 +26,7 @@
         <module>gateway-oral</module>
         <module>web-yf</module>
         <module>api-open-yf</module>
+        <module>wap-yf</module>
     </modules>
 
     <dependencies>
