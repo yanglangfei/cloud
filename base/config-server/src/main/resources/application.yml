@@ -1,7 +1,7 @@
 spring:
   profiles: default
-  zipkin:
-    base-url: http://localhost:1158
+ # zipkin:
+  #  base-url: http://localhost:1158
   application:
     name: config-server
   cloud:
@@ -10,7 +10,7 @@ spring:
         git:
           uri: https://github.com/yanglangfei/cloud-config
           search-paths: /config
-          basedir: base/config-server/target/config
+          basedir: /app/config
     bus:
       enabled: false
   rabbitmq:
